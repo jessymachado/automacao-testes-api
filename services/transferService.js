@@ -8,7 +8,7 @@ function transferir({ de, para, valor }) {
   const remetente = users.find(u => u.usuario === de);
   const destinatario = users.find(u => u.usuario === para);
   if (!remetente || !destinatario) {
-    return { erro: 'Usuario remetente ou destinatário não encontrado' };
+    return { erro: 'Usuário remetente ou destinatário não encontrado.' };
   }
   if (remetente.saldo < valor) {
     return { erro: 'Saldo insuficiente.' };
