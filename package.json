@@ -1,0 +1,18 @@
+{
+  "name": "automacao-testes-api",
+  "version": "1.0.0",
+  "description": "Esta API REST foi desenvolvida em Node.js com Express para fins de aprendizado de testes e automação de APIs. O banco de dados é em memória, utilizando variáveis locais.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

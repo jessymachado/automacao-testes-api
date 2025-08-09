@@ -1,0 +1,101 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Testes e Automação",
+    "version": "1.0.0",
+    "description": "API para aprendizado de testes e automação."
+  },
+  "paths": {
+    "/registrar": {
+      "post": {
+        "summary": "Registrar novo usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "usuario": { "type": "string" },
+                  "senha": { "type": "string" },
+                  "favorecido": { "type": "boolean" },
+                  "saldo": { "type": "number", "minimum": 0, "description": "Saldo inicial do usuário" }
+                },
+                "required": ["usuario", "senha"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Usuário registrado" },
+          "400": { "description": "Erro de validação" }
+        }
+      }
+    },
+    "/entrar": {
+      "post": {
+        "summary": "Login de usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "usuario": { "type": "string" },
+                  "senha": { "type": "string" }
+                },
+                "required": ["usuario", "senha"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login bem-sucedido" },
+          "401": { "description": "Credenciais inválidas" }
+        }
+      }
+    },
+    "/usuarios": {
+      "get": {
+        "summary": "Consultar usuários",
+        "responses": {
+          "200": { "description": "Lista de usuários" }
+        }
+      }
+    },
+    "/transferir": {
+      "post": {
+        "summary": "Transferir valores",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "de": { "type": "string" },
+                  "para": { "type": "string" },
+                  "valor": { "type": "number" }
+                },
+                "required": ["de", "para", "valor"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Transferência realizada" },
+          "400": { "description": "Erro de validação ou regra" }
+        }
+      }
+    },
+    "/transferencias": {
+      "get": {
+        "summary": "Consultar transferências",
+        "responses": {
+          "200": { "description": "Lista de transferências" }
+        }
+      }
+    }
+  }
+}
